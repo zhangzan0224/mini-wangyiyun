@@ -1,19 +1,118 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #aaa;
+/* pages/index/index.wxss */
+
+.banner {
+    width: 100%;
+    height: 300rpx;
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.banner image {
+    width: 100%;
+    height: 100%;
 }
 
-.usermotto {
-  margin-top: 200px;
+/* 五个图标导航 */
+.navContainer {
+    display: flex;
+    margin: 20rpx 0;
+}
+
+.navItem {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navItem .iconfont {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 50rpx;
+    color: #fff;
+    background-color: rgb(240, 19, 19);
+}
+
+.navItem text {
+    font-size: 26rpx;
+}
+
+/* 推荐歌曲 */
+.recommendContainer {
+    padding: 20rpx;
+}
+
+/* 滑块区 */
+.recommendScroll {
+    display: flex;
+    height: 200rpx;
+}
+
+.scrollItem {
+    /* 这里如果设置成200rpx，需设置不默认缩小，默认是自动缩小的 */
+    /*     flex-basis: 200rpx; 
+    flex-shrink: 0; */
+    width: 200rpx;
+    margin-right: 20rpx;
+}
+
+.scrollItem image {
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 20rpx;
+}
+
+.scrollItem text {
+    display: block;
+    font-size: 26rpx;
+    /* 单行文本溢出 */
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+    /* 多行文本溢出 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical; /* 设置对齐模式*/
+    -webkit-line-clamp: 2; /* 设置文本显示行数*/
+}
+
+/* 排行榜区域 */
+.topList {
+    padding: 20rpx;
+}
+.topListSwiper{
+    height: 400rpx;
+}
+.swiperItem{
+    width: 100%;
+    background-color: #ededed;
+}
+.swiperItem  .musicItem{
+    display: flex;
+    margin-bottom: 20rpx;
+}
+.swiperItem .title{
+    line-height: 80rpx;
+    font-size: 30rpx;
+}
+.swiperItem  .musicItem image{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 10rpx;
+}
+.swiperItem  .musicItem .count{
+    width: 100rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+}
+.swiperItem  .musicItem .musicName{
+    height: 100rpx;
+    line-height: 100rpx;
+    max-width: 400rpx;
+    white-space: nowrap;  /* 单行 */
+    overflow: hidden;
+    text-overflow: ellipsis;  /* 多的以圣罗浩呈现 */
 }
