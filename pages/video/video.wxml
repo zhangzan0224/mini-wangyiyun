@@ -1,2 +1,49 @@
 <!--pages/video/video.wxml-->
-<text>pages/video/video.wxml</text>
+<!-- <text>pages/video/video.wxml</text> -->
+<view class="videoContainer">
+    <view class="header">
+        <image src="/static/images/video/video.jpg"></image>
+        <view class="search">搜索音乐</view>
+        <image src="/static/images/logo.png"></image>
+    </view>
+    <!-- 导航区 -->
+    <!-- scroll-into-view 值应为某子元素id（id不能以数字开头）。设置哪个方向可滚动，则在哪个方向滚动到该元素 -->
+    <!-- dataset可以传递的值不会进行变化,id的值是字符串 -->
+    <scroll-view scroll-x enable-flex class="navScroll" scroll-into-view="{{'scroll'+ navId}}" scroll-with-animation>
+        <view class="navItem" wx:for="{{videoNavList}}" wx:key="id" id="{{'scroll'+ item.id}}" bindtap="changeNav" data-id="{{item.id}}">
+            <!-- 里面的文字 -->
+            <view class="navContent {{navId === item.id?'active':''}}">
+                {{item.name}}
+            </view>
+        </view>
+    </scroll-view>
+    <!-- 视频列表区域 -->
+    <scroll-view scroll-y enable-flex class="videoScorll" refresher-enabled refresher-background="#d43c33" refresher-triggered="{{isRefreshTriggered}}" bindrefresherrefresh="handelFreshed" bindscrolltolower="handelScrollToLower">
+        <view class="videoItem" wx:for="{{videoList}}" wx:key="id">
+            <video src="{{item.data.urlInfo.url}}" bindplay="handelPlay" id="{{item.data.vid}}" poster="{{item.data.coverUrl}}" class="common" wx:if="{{videoId ==item.data.vid }}" object-fit="fill" bindtimeupdate="handelTimeUpdate" bindended="handelEnded">
+            </video>
+            <image src="{{item.data.coverUrl}}" class="common" id="{{item.data.vid}}" bindtap="handelPlay" wx:else>
+            </image>
+            <view class="title">
+                {{item.data.title}}
+            </view>
+            <view class="footer">
+                <image class="avatar" src="{{item.data.creator.avatarUrl}}"></image>
+                <text class="nickName">{{item.data.creator.nickname}}</text>
+                <view class="comments_praised">
+                    <text class="item">
+                        <text class="iconfont icon-buoumaotubiao15"></text>
+                        <text class="count">{{item.data.praisedCount}}</text>
+                    </text>
+                    <text class="item">
+                        <text class="iconfont icon-pinglun1"></text>
+                        <text class="count">{{item.data.commentCount}}</text>
+                    </text>
+                    <button class="item btn" open-type="share">
+                        <text class="iconfont icon-gengduo"></text>
+                    </button>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

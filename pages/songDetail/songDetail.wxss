@@ -1,0 +1,93 @@
+/* pages/songDetail/songDetail.wxss */
+.songDetailContainer{
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* 底座 */
+.circle{
+    position: relative;
+    z-index: 100;
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    background: #fff;
+    margin: 10px 0;
+}
+/* 摇杆 */
+.needle{
+    position: relative;
+    z-index: 99;
+    left: 60rpx;
+    top: -46rpx;
+    width: 192rpx;
+    height: 274rpx;
+    /* 中心点设置在圆球的中心 */
+    transform-origin: 40rpx 0; 
+    transform: rotate(-26deg);
+    transition: transform 1s linear;
+}
+.needleRotate{
+    transform: rotate(0deg);
+}
+/* 磁盘 */
+.discContainer{
+    position: relative;
+    top: -170rpx;
+    width: 600rpx;
+    height: 600rpx;
+}
+@keyframes disc{
+    from {
+        transform:rotate(0)
+    }
+    to{
+        transform:rotate(360deg)
+    }
+}
+.discContainerAnimation{
+    animation: disc 6s linear infinite;
+    /* 动画延迟1s,需要等摇杆到达磁盘 */
+    animation-delay: 1s;
+}
+.discContainer .dist {
+    width: 600rpx;
+    height: 600rpx;
+}
+/* 歌手图片 */
+.musicImage{
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 370rpx;
+    height: 370rpx;
+    border-radius: 50%;
+}
+/* 底部控制区域 */
+.musicControl {
+    position: absolute;
+    bottom: 40rpx;
+    left: 0;
+    border-top: 1rpx solid #fff;
+    width: 100%;
+    display: flex;
+  
+  }
+  
+  .musicControl  text {
+    width: 20%;
+    height: 120rpx;
+    line-height: 120rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 50rpx;
+  }
+  
+  .musicControl  text.big{
+    font-size: 80rpx;
+  }

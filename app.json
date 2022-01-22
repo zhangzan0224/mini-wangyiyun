@@ -1,14 +1,18 @@
 {
     "pages": [
-        "pages/personal/personal",
+        "pages/recommendSong/recommendSong",
         "pages/index/index",
-        "pages/video/video"
+        "pages/songDetail/songDetail",
+        "pages/video/video",
+        "pages/login/login",
+        "pages/personal/personal"
     ],
     "tabBar": {
-        "color":"#333",
+        "color": "#333",
         "selectedColor": "#d43c33",
         "backgroundColor": "#ffffff",
-        "list": [{
+        "list": [
+            {
                 "pagePath": "pages/index/index",
                 "text": "主页",
                 "iconPath": "/static/images/tabs/tab-home.png",
@@ -27,7 +31,6 @@
                 "selectedIconPath": "/static/images/tabs/tab-my-current.png"
             }
         ]
-       
     },
     "window": {
         "navigationBarBackgroundColor": "#d43c33",

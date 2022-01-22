@@ -8,14 +8,14 @@
     <view class="input-content">
       <view class="input-item">
         <text class="tit">手机号码</text>
-        <input  type="text" placeholder="请输入手机号码"/>
+        <input  type="text" placeholder="请输入手机号码" id="phone" bindinput="handelInput"/>
       </view>
       <view class="input-item">
         <text class="tit">密码</text>
-        <input type="password"  placeholder="请输入密码"/>
+        <input type="password"  placeholder="请输入密码"  id="password" bindinput="handelInput"/>
       </view>
     </view>
-    <button class="confirm-btn" >登录</button>
+    <button class="confirm-btn"  bindtap="login">登录</button>
     <view class="forget-section">
       忘记密码?
     </view>

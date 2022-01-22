@@ -1,1 +1,142 @@
 /* pages/video/video.wxss */
+.videoContainer .header {
+    display: flex;
+    padding: 10rpx;
+}
+
+.videoContainer .header image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.videoContainer .header .search {
+    border: 1rpx solid #eee;
+    text-align: center;
+    /* 默认是不可拉伸,可压缩 */
+    /* flex flex-grow 0 flex-shrink 1 flex-basic auto */
+    flex: 1;
+    margin: 0 20rpx;
+    font-size: 26rpx;
+    line-height: 60rpx;
+    color: #d43c33;
+    border-radius: 10rpx;
+}
+
+/* 导航区 */
+.navScroll {
+    display: flex;
+    /* 让内容在一行 */
+    white-space: nowrap;
+    height: 60rpx;
+}
+
+.navScroll .navItem {
+    padding: 0 30rpx;
+    font-size: 28rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    box-sizing: border-box;
+}
+
+.navScroll .navItem .navContent {
+    height: 60rpx;
+    box-sizing: border-box;
+}
+
+.navScroll .navItem .active {
+    border-bottom: 1rpx solid #d43c33;
+}
+
+/* 视频 */
+.videoScorll{
+    /* calc动态计算,运算符两侧必须加空格,否则会失效 */
+    height:  calc(100vh - 144rpx);
+}
+.videoItem {
+    padding: 0 3%;
+    margin: 10rpx 0;
+}
+
+.videoItem .common {
+    width: 100%;
+    height: 360rpx;
+    border-radius: 20rpx;
+}
+
+.videoItem .title {
+    font-size: 26rpx;
+}
+
+.videoItem .comment {
+    display: flex;
+    justify-content: space-between;
+}
+
+.videoItem .comment image {
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+}
+
+.videoItem .comment text {
+    font-size: 24rpx;
+}
+
+.weui-cell__hd {
+    position: relative;
+}
+
+.weui-cell {
+    padding: 0 40rpx 0 0;
+}
+
+.weui-cell__hd .weui-badge {
+    position: absolute;
+    top: 4rpx;
+    left: 30rpx
+}
+
+/* footer */
+.footer {
+    border-top: 1rpx solid #eee;
+    padding: 20rpx 0;
+}
+
+.footer .avatar {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.footer .nickName {
+    font-size: 26rpx;
+    vertical-align: middle;
+    margin-left: 20rpx;
+}
+
+.footer .comments_praised {
+    float: right;
+}
+
+.comments_praised .btn {
+    display: inline;
+    padding: 0;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.comments_praised .btn:after {
+    border: none;
+}
+
+.comments_praised .item {
+    margin-left: 50rpx;
+    position: relative;
+}
+
+.comments_praised .item .count {
+    position: absolute;
+    top: -20rpx;
+    font-size: 20rpx;
+}

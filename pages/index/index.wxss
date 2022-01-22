@@ -46,7 +46,7 @@
 /* 滑块区 */
 .recommendScroll {
     display: flex;
-    height: 200rpx;
+    height: 300rpx;
 }
 
 .scrollItem {
