@@ -29,6 +29,9 @@ App({
     
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    // 进入播放页面,如果之前点击过为播放,再进去应该还播放,但是每次进去播放页面初始的时候为false
+    isMusicPlay:false,
+    musicId:''
   }
 })

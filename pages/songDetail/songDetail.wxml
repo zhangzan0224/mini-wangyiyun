@@ -3,9 +3,22 @@
     <text wx:for="{{songDetail.ar}}" wx:key="id">{{item.name}}</text>
     <view class="circle"></view>
     <image class="needle {{isPlay?'needleRotate':''}}" src="/static/images/song/needle.png"></image>
-    <view class="discContainer {{isPlay?'discContainerAnimation':''}}">
+    <view class="discContainer {{isPlay&&'discContainerAnimation'}}">
         <image class="dist" src="/static/images/song/disc.png"></image>
         <image class="musicImage" src="{{songDetail.al.picUrl}}"></image>
+    </view>
+    <!-- 进度条控制区域 -->
+    <view class="progressControl">
+        <text>{{currentTime}}</text>
+        <!-- 总进度条 -->
+        <view class="barControl">
+            <!-- 实时进度条 -->
+            <view class="audio-currentTime-Bar" style="width: {{currentWidth + 'rpx'}}">
+                <!-- 小圆球 -->
+                <view class="audio-circle"></view>
+            </view>
+        </view>
+        <text>{{durationTime}}</text>
     </view>
     <!-- 音乐控制区域 -->
     <view class="musicControl">

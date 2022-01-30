@@ -1,11 +1,12 @@
 {
     "pages": [
-        "pages/recommendSong/recommendSong",
         "pages/index/index",
+        "pages/search/search",
+        "pages/recommendSong/recommendSong",
         "pages/songDetail/songDetail",
         "pages/video/video",
         "pages/login/login",
-        "pages/personal/personal"
+        "pages/personal/personal"  
     ],
     "tabBar": {
         "color": "#333",
@@ -38,5 +39,8 @@
         "navigationBarTitleText": "云音乐"
     },
     "style": "v2",
-    "sitemapLocation": "sitemap.json"
+    "sitemapLocation": "sitemap.json",
+    "requiredBackgroundModes": [
+        "audio"
+    ]
 }

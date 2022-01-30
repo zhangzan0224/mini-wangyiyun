@@ -1,4 +1,4 @@
-// pages/recommendSong/recommendSong.js
+import PubSub from 'pubsub-js'
 import requests from '../../utils/requests'
 Page({
 
@@ -8,7 +8,8 @@ Page({
     data: {
         day:'',
         mouth:'',
-        recommendSongList:[]
+        recommendSongList:[],
+        index:0 //歌曲的下标
     },
    async getRecommendSongList(){
         let reqRecommendSongListRes =await requests('/recommend/songs')
@@ -21,9 +22,13 @@ Page({
     },
     //跳转到歌曲详情页
     gotoSongDetail(e){
-        let musicId = e.currentTarget.dataset.id;
+        let {musicid , index} = e.currentTarget.dataset;
+        this.setData({
+            index
+        })
         wx.navigateTo({
-          url: '/pages/songDetail/songDetail?musicId='+musicId,
+            //注意dataset的获取的key值都是小写
+          url: '/pages/songDetail/songDetail?musicId='+musicid,
         })
     },
     /**
@@ -50,6 +55,27 @@ Page({
               }
             })
         }
+        // 订阅消息,订阅来自songDetail的消息
+        PubSub.subscribe('switchType',(msg,type)=>{
+            let {recommendSongList , index} = this.data
+            // console.log(msg,type);
+            if(type == 'pre'){
+                // 当到第一首的时候下次点击上一首跳到最后一首
+                (index === 0) && (index = recommendSongList.length)
+                index = index-1;
+            }else{
+                // 当到第一首的时候下次点击上一首跳到最后一首
+                (index ==recommendSongList.length - 1 ) && (index = -1)
+                index = index+1;
+            }
+            // 更新下标
+
+            this.setData({
+                index
+            })
+            let musicId = recommendSongList[index].id;
+            PubSub.publish('musicId',musicId)
+        })
     },
 
     /**

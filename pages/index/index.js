@@ -10,7 +10,11 @@ Page({
         recommentList:[], // 推荐歌单
         topList:[] // 排行榜数据
     },
-
+    gotoRecommendSong(){
+        wx.navigateTo({
+          url: '/pages/recommendSong/recommendSong',
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -60,7 +64,12 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+        wx.login({
+          timeout: 5000,
+          success:(res)=>{
+              console.log(res);
+          }
+        })
     },
 
     /**
